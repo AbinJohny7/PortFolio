@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home - Abin Johny Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    :root {
+      --color-primary: #07002a;
+      --color-primary-light: #a37400;
+      --color-text: #6b7280;
+      --color-text-light: #9ca3af;
+      --color-bg: #eff0f6;
+      --color-bg-dark: #9b9bf6;
+      --color-text-dark: #ccdcf5;
+      --border-radius: 0.75rem;
+      --shadow-light: 0 4px 12px rgba(109,67,0,0.12);
+      --transition: 0.3s ease;
+      --max-width: 1200px;
+      --font-family: 'Poppins', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-family);
+      font-size: 17px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color var(--transition), color var(--transition);
+    }
+    body.dark {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-dark);
+    }
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover,
+    nav a.active {
+      color: var(--color-primary);
+    }
+    body.dark a {
+      color: var(--color-text-dark);
+    }
+    body.dark a:hover,
+    body.dark nav a.active {
+      color: var(--color-primary-light);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      box-shadow: var(--shadow-light);
+      z-index: 1000;
+      transition: background-color var(--transition), box-shadow var(--transition);
+    }
+    body.dark header {
+      background: var(--color-bg-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--color-primary);
+      user-select: none;
+      cursor: default;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      text-shadow: 0 0 10px var(--color-primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      transition: color var(--transition), background-color var(--transition);
+      cursor: pointer;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: var(--color-primary);
+      left: 0;
+      bottom: -6px;
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    /* Theme toggle button */
+    .theme-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      border-radius: 0.5rem;
+      padding: 6px 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .theme-toggle:hover {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      box-shadow: 0 0 8px var(--color-primary);
+      transform: scale(1.05);
+    }
+    body.dark .theme-toggle {
+      border-color: var(--color-primary-light);
+      color: var(--color-primary-light);
+    }
+    body.dark .theme-toggle:hover {
+      background-color: var(--color-primary-light);
+      color: var(--color-bg-dark);
+      box-shadow: 0 0 12px var(--color-primary-light);
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    /* Fade-in animation for main content */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .intro-section {
+      background: #f9fafb;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      padding: 2.5rem 2.8rem;
+      flex: 1 1 550px;
+      text-align: center;
+      transition: background-color var(--transition), color var(--transition);
+    }
+    body.dark .intro-section {
+      background: #2e3a4a;
+      color: var(--color-text-dark);
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw + 1rem, 3.75rem);
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      transition: color var(--transition);
+    }
+    .intro-section h1 span {
+      display: inline-block;
+      text-shadow: 0 0 15px var(--color-primary);
+      color: var(--color-primary);
+    }
+    .typewriter {
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+      position: relative;
+      user-select: none;
+      transition: color var(--transition);
+    }
+    .typewriter span {
+      position: relative;
+      display: inline-block;
+      font-weight: 900;
+      font-size: 2.7rem;
+      color: var(--color-primary);
+      text-shadow: 0 0 7px var(--color-primary);
+    }
+    p {
+      font-size: clamp(0.95rem, 2vw + 0.3rem, 1.1rem);
+      color: var(--color-text);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      transition: color var(--transition);
+    }
+    body.dark p {
+      color: var(--color-text-dark);
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.3rem;
+    }
+    .social-links a {
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      user-select: none;
+    }
+    .social-links a:hover,
+    .social-links a:focus {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      box-shadow: 0 0 12px var(--color-primary);
+      transform: scale(1.3);
+      outline: none;
+      cursor: pointer;
+    }
+    .btn-container {
+      margin-top: 3rem;
+    }
+    button.download-cv {
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: 1rem;
+      color: var(--color-bg);
+      padding: 0.85rem 3rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow-light);
+      transition: background-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+      user-select: none;
+    }
+    button.download-cv:hover,
+    button.download-cv:focus {
+      background-color: transparent;
+      color: var(--color-primary);
+      border: 3px solid var(--color-primary);
+      box-shadow: 0 0 30px var(--color-primary);
+      transform: scale(1.1);
+      outline: none;
+    }
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+      main {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .intro-section {
+        flex: 1 1 100%;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav role="navigation" aria-label="Primary navigation">
+      <div class="logo" aria-label="Logo: Abin Johny Portfolio"><span>Abin Johny</span></div>
+      <div class="nav-links" role="menubar" aria-label="Main menu">
+        <a href="home.html" class="active" role="menuitem" aria-current="page" tabindex="0">Home</a>
+        <a href="about.html" role="menuitem" tabindex="0">About</a>
+        <a href="skills.html" role="menuitem" tabindex="0">Skills</a>
+        <a href="services.html" role="menuitem" tabindex="0">Services</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="intro-section" aria-label="Introduction">
+      <h1>Hey I'm <span>Abin Johny</span></h1>
+      <div class="typewriter" aria-live="polite">I'm a <span>Developer</span></div>
+      <P> I am Abin Johny Btech Graduate</P>
+      <div class="social-links" aria-label="Social media links">
+     <a href="https://github.com/AbinJohny7" target="_blank" rel="noopener noreferrer" aria-label="GitHub" tabindex="0"><i class="fa-brands fa-github"></i></a>
+     <a href="https://www.linkedin.com/in/abin-johny7"target="blank" rel="noopener noreferrer" aria-label="LinkedIn"tabindex="0"><i class="fa-brands fa-linkedin"></i></a>
+ <a href="https://x.com/abinjohny184"traget="blank"rel="noopener noreferrer" aria-label="Twitter" tabindex="0"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+      <div class="btn-container">
+        <button class="download-cv" aria-label="Download CV" tabindex="0">Download CV</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

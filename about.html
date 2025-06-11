@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>About - Abin Johny Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+    :root {
+      --color-primary: #07002a;
+      --color-text: #6b7280;
+      --color-background: #eff0f6;
+      --color-heading: #111827;
+      --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --border-radius: 0.75rem;
+      --max-width: 1200px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 17px;
+    }
+    a {
+      text-decoration: none;
+      color: var(--color-text);
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    nav a.active {
+      color: var(--color-primary);
+    }
+    header, nav {
+      background: var(--color-background);
+      position: sticky;
+      top: 0;
+      box-shadow: var(--shadow-light);
+      z-index: 100;
+    }
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      user-select: none;
+    }
+    .logo span {
+      text-shadow: 0 0 8px var(--color-primary);
+      color: var(--color-primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.2rem 0.3rem;
+      position: relative;
+    }
+    .nav-links a::after{
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: var(--color-primary);
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    main {
+      flex-grow: 1;
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .about-header {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    .about-header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      text-shadow: 0 0 8px var(--color-primary);
+    }
+    .about-header .subtitle {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      margin-bottom: 2rem;
+    }
+    .content-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #f9fafb;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      padding: 2rem 2.5rem;
+      color: var(--color-text);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .content-card p + p {
+      margin-top: 1.1rem;
+    }
+    .social-links {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background-color: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 0 12px var(--color-primary);
+      transform: scale(1.2);
+    }
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: 2.7rem;
+      }
+      .about-header .subtitle {
+        font-size: 1.4rem;
+      }
+      .content-card {
+        padding: 1.5rem 1.8rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo" aria-label="Logo: Abin Johny Portfolio"><span>Abin Johny</span></div>
+      <div class="nav-links" role="menu">
+        <a href="home.html" role="menuitem">Home</a>
+        <a href="about.html" class="active" aria-current="page" role="menuitem">About</a>
+        <a href="skills.html" role="menuitem">Skills</a>
+        <a href="services.html" role="menuitem">Services</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="about-header" aria-label="About Heading">
+      <h1>About Me</h1>
+      <div class="subtitle" aria-live="polite">Passionate Developer & Designer</div>
+    </section>
+    <section class="content-card" aria-label="About content">
+      <p>Hello! I'm Abin Johny, a dedicated software developer with a passion for building elegant and efficient web applications. With years of experience in full-stack development, I enjoy crafting user-centric digital experiences that blend functionality with beautiful design.</p>
+      <p>My journey in tech began with curiosity and quickly grew into a fulfilling career focused on continuous learning and adaptation in a fast-paced industry. I specialize in modern JavaScript frameworks, CSS design techniques, and creating accessible, responsive web apps.</p>
+      <p>When I'm not coding, I love exploring new design trends, contributing to open-source projects, and sharing knowledge through tutorials and blogs. Feel free to reach out if you'd like to collaborate or learn more!</p>
+    </section>
+    <section class="social-links" aria-label="Social media links">
+      <a href="https://github.com/AbinJohny7" target="_blank" rel="noopener noreferrer" aria-label="GitHub" tabindex="0"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/abin-johny7"target="blank" rel="noopener noreferrer" aria-label="LinkedIn"tabindex="0"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://x.com/abinjohny184"traget="blank"rel="noopener noreferrer" aria-label="Twitter" tabindex="0"><i class="fa-brands fa-x-twitter"></i></a>
+    </section>
+  </main>
+</body>
+</html>
+
